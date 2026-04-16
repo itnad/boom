@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폭탄 카드 매칭 배틀</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">Memory Battle</p>
+      <h1>폭탄 카드 매칭 배틀</h1>
+      <p class="hero-copy">
+        5x5 타일에서 같은 그림 카드를 맞추고 점수를 쌓아 보세요.
+        폭탄을 뒤집으면 즉시 감점되고 턴이 넘어갑니다.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls-panel">
+        <h2>게임 설정</h2>
+        <label class="field">
+          <span>참가 인원</span>
+          <select id="playerCount">
+            <option value="2">2명</option>
+            <option value="3">3명</option>
+            <option value="4">4명</option>
+            <option value="5" selected>5명</option>
+          </select>
+        </label>
+
+        <div id="characterFields" class="character-fields"></div>
+
+        <button id="startGameButton" class="primary-button">게임 시작</button>
+
+        <div class="rules">
+          <h3>규칙 요약</h3>
+          <ul>
+            <li>그림 카드는 5종류, 각 4장씩 총 20장입니다.</li>
+            <li>폭탄 카드는 5장이며 뒤집은 플레이어의 점수에서 1점이 차감됩니다.</li>
+            <li>같은 그림 2장을 맞추면 카드를 획득하고 한 번 더 뒤집을 수 있습니다.</li>
+            <li>실패하거나 폭탄이 나오면 카드가 다시 닫히고 다음 플레이어로 턴이 넘어갑니다.</li>
+            <li>모든 일반 카드가 획득되고 폭탄도 모두 확인되면 게임이 끝납니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel board-panel">
+        <div class="status-bar">
+          <div>
+            <p class="status-label">현재 턴</p>
+            <strong id="turnLabel">게임을 시작하세요</strong>
+          </div>
+          <div>
+            <p class="status-label">상태</p>
+            <strong id="messageLabel">참가 인원과 캐릭터를 설정해 주세요.</strong>
+          </div>
+        </div>
+
+        <div id="scoreboard" class="scoreboard"></div>
+        <div id="board" class="board" aria-live="polite"></div>
+
+        <div class="legend">
+          <span><b>내 차례</b>에만 카드를 눌러 뒤집을 수 있습니다.</span>
+          <span>NPC는 공개된 카드 정보를 기억해 행동합니다.</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
